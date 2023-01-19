@@ -1,5 +1,6 @@
 <?php
 /*
+
 1.  Grąžinkite visų lyginių skaičių, esančių $numbers masyve, sumą (1 balas)
    $numbers = [
        15,
