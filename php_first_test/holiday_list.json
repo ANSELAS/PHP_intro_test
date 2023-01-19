@@ -1,0 +1,24 @@
+[
+    {
+        "Destination": "Paris",
+        "Title": [
+            "Romantic Paris",
+            "Hidden Paris"
+        ],
+        "Price": 99500
+    },
+    {
+        "Destination": "New York",
+        "Title": [
+            "Amazing New York"
+        ],
+        "Price": 56679
+    },
+    {
+        "Destination": "Sydney",
+        "Title": [
+            "Spectacular Sydney"
+        ],
+        "Price": 37170
+    }
+]
