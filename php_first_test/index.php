@@ -1,18 +1,9 @@
 <?php
 /*
-3.    Masyve $holidays turime kelionių agentūros siūlomas keliones su kaina ir dalyvių skaičiumi.
-      Terminale išspausdinkite santrauką, kurioje matytusi miesto pavadinimas, kelionių pavadinimai
-      ir dalyvių sumokėta suma. Dėmesio! Santraukoje nerodykite tų kelionių, kurių kaina yra null. (3 balai)
-
-      Destination "Paris".
-      Titles: "Romantic Paris", "Hidden Paris"
-      Total: 99500
-      ************
-      Destination "New York"
-     ...
+4. Pakoreguokite 3 užduotį taip, kad ji duomenis rašytų ne į terminalą, o spausdintų į failą. (1.5 balas)
 */
 
-function exercise3(): void {
+function exercise4(): void {
     $holidays = [
         [
             'title' => 'Romantic Paris',
@@ -63,11 +54,17 @@ function exercise3(): void {
         $holidaySummary[$destination]['total'] += $holiday['price'] * $holiday['tourists'];
     }
 
-    foreach ($holidaySummary as $summary) {
-        echo "Destination: " . $summary['destination'] . PHP_EOL .
-            "Titles: " . implode(', ', $summary['titles']). PHP_EOL .
-            "Total: " . $summary['total'] . PHP_EOL .
-            '************' . PHP_EOL;
+    $newArray = [];
+    foreach ($holidaySummary as $newSummary) {
+        $newSummary = [
+            'Destination' => $newSummary['destination'],
+            'Title' => $newSummary['titles'],
+            'Price' => $newSummary['total']
+        ];
+        $newArray[] = $newSummary;
     }
-}
-exercise3();
+    $file = './holiday_list.json';
+    $serialized = json_encode($newArray, JSON_PRETTY_PRINT);
+    file_put_contents($file, $serialized);
+};
+exercise4();
