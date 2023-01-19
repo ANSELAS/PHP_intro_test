@@ -1,8 +1,20 @@
 <?php
 /*
-5. Parašykite programą, kuri Jūsų susigalvotus duomenis paimtų iš failo ir atspausdintų terminale. (1.5 balas)
+6. Parašykite programą, kuri per argumentų padavimą terminale paleidžiant funkciją juos priimtų ir juos sudaugintų
+tarpusavyje ir pakeltu kvadratu. Atkreipkite dėmesį, kad jeigu argumentas yra paduodamas ne skaičius, reikia, kad
+terminale gautumėme atitinkamą klaidos kodą ir pranešimą. (2 balai)
 */
 
-$cars = file_get_contents('./cars.json');
-$deserialized = json_decode($cars, true);
-var_dump($deserialized);
+function exercise6(): void {
+    $firstNumber = readline('Enter first number: ');
+    $secondNumber = readline('Enter second number: ');
+
+    if (!is_numeric($firstNumber) || !is_numeric($secondNumber)) {
+        echo 'ERROR 404: PLEASE ENTER A NUMBER!';
+    } else {
+        $multiply = $firstNumber * $secondNumber;
+        $result = pow($multiply, 2);
+        echo $firstNumber . " times " . $secondNumber . " and then raised by 2 is " . $result;
+    }
+}
+exercise6();
